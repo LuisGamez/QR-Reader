@@ -1,0 +1,44 @@
+@font-face {
+    font-family: MyFont;
+    src: url("../assets/fonts/robotocondensed-regular-webfont.woff");
+    }
+
+page-welcome {
+
+    .contenido {
+        background-image: url("./../../assets/imgs/fondo2.jpg");
+        //background-color: rgb(197, 231, 253);
+      }
+
+    .btn-rh1{
+        color :#a2c037;
+    }
+    .btn-hc1{
+        color :#68A8DE;
+    }
+
+    .slogan{
+        color:#3F3E3E;
+        font-size: 18px;
+        font-style: unset;
+        font-weight: bold;
+        text-align: center;
+        padding-bottom: 20PX;
+        letter-spacing:3px;
+    }
+    
+      #logo {
+        text-align: center;
+    }
+
+    ion-content button img {
+        padding-right: 15px;
+        width: 50px;
+    }
+
+    .large_button {
+        line-height: 20vh !important;
+        height: 50px;
+        text-align: left;
+        }
+}

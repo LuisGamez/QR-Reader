@@ -1,0 +1,173 @@
+[
+  {
+    "id_paciente":"351",
+    "name":"Carlos Alfredo",
+    "ap_pat_pac":"Palomares",
+    "ap_mat_pac":"Niño",
+    "fecha_nac_pac":"1993/02/21",
+    "dir_pac":"Torino #218",
+    "col_dir_pac":"Olinda",
+    "cd_dir_pac":"San Luis Potosí",
+    "edo_dir_pac":"San Luis Potosí",
+    "cp_dir_pac":"",
+    "telefono_pac":"4442655888",
+    "foto_paciente":"351.jpg",
+    "sexo_pac":"M",
+    "area":"Almacén",
+    "puesto":"Almacenista",
+    "fotos_exp":[ 
+      {
+        "id_foto": "0001",
+        "descripcion_foto": "Reporte Medico Laboral",
+        "area_foto": "Historia Clinica"
+      },
+      {
+        "id_foto": "0002",
+        "descripcion_foto": "Reporte Radiográfico Columna Lumbar y Torax",
+        "area_foto": "Rayos"
+      },
+      {
+        "id_foto": "0003",
+        "descripcion_foto": "Reporte Radiográfico Columna Dorsal y Muñecas",
+        "area_foto": "Rayos"
+      },
+      {
+        "id_foto": "0004",
+        "descripcion_foto": "Exámen Médico de Ingreso -Datos Generales-",
+        "area_foto": "Historia Clinica"
+      },
+      {
+        "id_foto": "0005",
+        "descripcion_foto": "Exámen Médico -Formato de Autollenado-",
+        "area_foto": "Historia Clinica"
+      },
+      {
+        "id_foto": "0006",
+        "descripcion_foto": "Exámen Médico -Exploración Física-",
+        "area_foto": "Historia Clinica"
+      },
+      {
+        "id_foto": "0007",
+        "descripcion_foto": "Audiometria",
+        "area_foto": "Audiometría"
+      },
+      {
+        "id_foto": "0008",
+        "descripcion_foto": "Cuestionario Auditivo",
+        "area_foto": "Audiometría"
+      },
+      {
+        "id_foto": "0009",
+        "descripcion_foto": "Espirometría",
+        "area_foto": "Espirometría"
+      },
+      {
+        "id_foto": "0010",
+        "descripcion_foto": "Cuestionario Respiratorio",
+        "area_foto": "Espirometría"
+      },
+      {
+        "id_foto": "0011",
+        "descripcion_foto": "Reporte de Laboratorio -Quimica Sanguinea de 3, Examen General de Orina-",
+        "area_foto": "Laboratorio"
+      },
+      {
+        "id_foto": "0012",
+        "descripcion_foto": "Reporte de Laboratorio -Antidoping de 5-",
+        "area_foto": "Laboratorio"
+      },
+      {
+        "id_foto": "0013",
+        "descripcion_foto": "Examen Toxicológico Antidoping",
+        "area_foto": "Laboratorio"
+      },
+      {
+        "id_foto": "0014",
+        "descripcion_foto": "Identificación",
+        "area_foto": "Historia Clinica"
+      },
+      {
+        "id_foto": "0015",
+        "descripcion_foto": "AP de Torax",
+        "area_foto": "Rayos"
+      },
+      {
+        "id_foto": "0016",
+        "descripcion_foto": "AP Columna Lumbar",
+        "area_foto": "Rayos"
+      },
+      {
+        "id_foto": "0017",
+        "descripcion_foto": "Lateral Columna Lumbar",
+        "area_foto": "Rayos"
+      },
+      {
+        "id_foto": "0018",
+        "descripcion_foto": "AP Columna Dorsal",
+        "area_foto": "Rayos"
+      },
+      {
+        "id_foto": "0019",
+        "descripcion_foto": "Lateral de Columna Dorsal",
+        "area_foto": "Rayos"
+      },
+      {
+        "id_foto": "0020",
+        "descripcion_foto": "AP Muñeca Izquierda",
+        "area_foto": "Rayos"
+      },
+      {
+        "id_foto": "0021",
+        "descripcion_foto": "Lateral Muñeca Izquierda",
+        "area_foto": "Rayos"
+      },
+      {
+        "id_foto": "0022",
+        "descripcion_foto": "AP Muñeca Derecha",
+        "area_foto": "Rayos"
+      },
+      {
+        "id_foto": "0023",
+        "descripcion_foto": "Lateral Muñeca Derecha",
+        "area_foto": "Rayos"
+      }
+    ],
+    "seg_ind_exp":[
+      {
+        "id_foto": "0024",
+        "descripcion_foto": "Estiloides Cubital Alta",
+        "area_foto": "Rayos"
+      },
+      {
+        "id_foto": "0025",
+        "descripcion_foto": "Subluxacion del Cubito",
+        "area_foto": "Rayos"
+      },
+      {
+        "id_foto": "0026",
+        "descripcion_foto": "Rectificación Cervical",
+        "area_foto": "Rayos"
+      },
+      {
+        "id_foto": "0027",
+        "descripcion_foto": "Ergonomía en el Proceso 1",
+        "area_foto": "Sec_2"
+      },
+      {
+        "id_foto": "0028",
+        "descripcion_foto": "Ergonomía en el Proceso 2",
+        "area_foto": "Sec_2"
+      },
+      {
+        "id_foto": "0029",
+        "descripcion_foto": "Datos de la Manupulación",
+        "area_foto": "Sec_3"
+      },
+      {
+        "id_foto": "0030",
+        "descripcion_foto": "Sellección del Peso Teórico",
+        "area_foto": "Sec_3"
+      }
+    ]
+  }
+]

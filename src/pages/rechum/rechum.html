@@ -1,0 +1,153 @@
+<ion-header>
+  <ion-navbar>
+    <ion-buttons end>
+      <button ion-button (click)="regresar()">
+        <ion-icon name="arrow-round-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>
+      Lector para Recursos Humanos
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+
+    <h1>
+        <button ion-button class="button large_button" color="btn-rh" large block (click)="scan()">
+          <img src="./assets/imgs/job-search.png"/>Escanear  
+        </button>
+      </h1>
+
+    <ion-grid *ngIf="PacienteFound">
+        <ion-row>  
+            <ion-col id="foto_pac">
+              <img src="./assets/pacientes/351/{{ selectedPaciente.foto_paciente }}" height="150px" *ngIf="selectedPaciente.foto_paciente!=null"/>
+                <img src="./assets/imgs/paciente-male.png" width="150px" height="150px" *ngIf="selectedPaciente.foto_paciente==null && selectedPaciente.sexo_pac=='M'"/>
+                <img src="./assets/imgs/paciente-female.png" width="150px" height="150px" *ngIf="selectedPaciente.foto_paciente==null && selectedPaciente.sexo_pac=='F'"/>
+            </ion-col>
+        </ion-row>
+      <ion-row class="fila_1">
+          <ion-col col-3>
+              <ion-label>Nomina: </ion-label>
+            </ion-col>
+            <ion-col> 
+                <p>351</p>
+            </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-3>
+            <ion-label>Nombre: </ion-label>
+          </ion-col>
+          <ion-col> 
+              <p>{{selectedPaciente.name}} {{selectedPaciente.ap_pat_pac}} {{selectedPaciente.ap_mat_pac}} </p>
+          </ion-col>
+        </ion-row>
+        <ion-row class="fila_1">
+          <ion-label col-3>Dirección:</ion-label>
+          <ion-col>     
+            <p>{{ selectedPaciente.dir_pac }} Col. {{ selectedPaciente.col_dir_pac }} <br>
+            {{ selectedPaciente.cd_dir_pac }} , {{ selectedPaciente.edo_dir_pac }} C.P. {{ selectedPaciente.cp_dir_pac }}</p>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col col-3>
+                <ion-label>Fec Nac: </ion-label>
+              </ion-col>
+              <ion-col> 
+                  <p>25-May-1990</p>
+              </ion-col>
+        </ion-row>
+        <ion-row class="fila_1">
+          <ion-col col-3>
+            <ion-label>Teléfono:</ion-label>
+          </ion-col>
+          <ion-col>
+            <p>{{ selectedPaciente.telefono_pac }}</p>
+          </ion-col>
+        </ion-row>
+          <ion-row>
+              <ion-col col-3>
+                <ion-label>Escolaridad: </ion-label>
+              </ion-col>
+              <ion-col> 
+                  <p>Carrera Técnica </p>
+              </ion-col>
+            </ion-row>
+            <ion-row class="fila_1">
+                <ion-col col-3>
+                  <ion-label>Correo: </ion-label>
+                </ion-col>
+                <ion-col> 
+                    <p>carlos.alfredo@gmail.com</p>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                  <ion-col col-3>
+                    <ion-label>Área: </ion-label>
+                  </ion-col>
+                  <ion-col> 
+                      <p>{{selectedPaciente.area}} </p>
+                  </ion-col>
+                </ion-row>
+              <ion-row class="fila_1">
+                  <ion-col col-3>
+                    <ion-label>Puesto: </ion-label>
+                  </ion-col>
+                  <ion-col> 
+                      <p>{{selectedPaciente.puesto}} </p>
+                  </ion-col>
+                </ion-row>
+              <ion-row>
+                  <ion-col col-3>
+                    <ion-label>Contratación: </ion-label>
+                  </ion-col>
+                  <ion-col> 
+                      <p>12-Feb-2016 </p>
+                  </ion-col>
+                  </ion-row>
+                  <ion-row class="fila_1">
+                      <ion-col col-3>
+                        <ion-label>$ Diario: </ion-label>
+                      </ion-col>
+                      <ion-col> 
+                          <p>$ 255.00 </p>
+                      </ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col col-3>
+                          <ion-label>$ Mensual: </ion-label>
+                        </ion-col>
+                        <ion-col> 
+                            <p>$ 7,650.00 </p>
+                        </ion-col>
+                      </ion-row>
+                    <ion-row class="fila_1">
+                        <ion-col col-3>
+                          <ion-label>Contrato: </ion-label>
+                        </ion-col>
+                        <ion-col> 
+                            <p>Indeterminado</p>
+                        </ion-col>
+                      </ion-row>
+                      <ion-row>
+                          <ion-col col-3>
+                            <ion-label>Banco: </ion-label>
+                          </ion-col>
+                          <ion-col> 
+                              <p>Santander</p>
+                          </ion-col>
+                        </ion-row>
+                      <ion-row class="fila_1">
+                          <ion-col col-3>
+                            <ion-label>Clave: </ion-label>
+                          </ion-col>
+                          <ion-col> 
+                              <p>014 700 605572578803</p>
+                          </ion-col>
+                        </ion-row>
+    </ion-grid>
+
+
+</ion-content>

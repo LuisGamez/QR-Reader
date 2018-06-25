@@ -1,14 +1,232 @@
 <ion-header>
   <ion-navbar>
+    <ion-buttons end>
+      <button ion-button (click)="regresar()">
+        <ion-icon name="arrow-round-back"></ion-icon>
+      </button>
+    </ion-buttons>
     <ion-title>
-      Ionic Blank
+      Lector para Historia Clinica
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+<h1>
+  <button ion-button class="button large_button" color="btn-hc" large block (click)="scan()">
+    <img src="./assets/imgs/medical-report.png"/>Escanear  
+  </button>
+</h1>
+
+<ion-grid *ngIf="PacienteFound">
+  <ion-row>  
+    <ion-col id="foto_pac">
+        <img src="./assets/pacientes/351/{{ selectedPaciente.foto_paciente }}" height="150px" *ngIf="selectedPaciente.foto_paciente!=null"/>
+        <img src="./assets/imgs/paciente-male.png" width="150px" height="150px" *ngIf="selectedPaciente.foto_paciente==null && selectedPaciente.sexo_pac=='M'"/>
+        <img src="./assets/imgs/paciente-female.png" width="150px" height="150px" *ngIf="selectedPaciente.foto_paciente==null && selectedPaciente.sexo_pac=='F'"/>
+        <img src="./assets/pacientes/" width="150px" height="150px" *ngIf="selectedPaciente.foto_paciente==null && selectedPaciente.sexo_pac=='F'"/>
+    </ion-col>
+  </ion-row>
+  <ion-row class="fila_1">
+    <ion-col col-3>
+      <ion-label>Nombre: </ion-label>
+    </ion-col>
+    <ion-col> 
+        <p>{{selectedPaciente.name}} {{selectedPaciente.ap_pat_pac}} {{selectedPaciente.ap_mat_pac}} </p>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-label col-3>Dirección:</ion-label>
+    <ion-col>     
+      <p>{{ selectedPaciente.dir_pac }} Col. {{ selectedPaciente.col_dir_pac }} <br>
+      {{ selectedPaciente.cd_dir_pac }} , {{ selectedPaciente.edo_dir_pac }} C.P. {{ selectedPaciente.cp_dir_pac }}</p>
+    </ion-col>
+  </ion-row>
+  <ion-row class="fila_1">
+    <ion-col col-3>
+      <ion-label>Teléfono:</ion-label>
+    </ion-col>
+    <ion-col>
+      <p>{{ selectedPaciente.telefono_pac }}</p>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+      <ion-col col-3>
+        <ion-label>Área: </ion-label>
+      </ion-col>
+      <ion-col> 
+        <p>{{selectedPaciente.area}}</p> 
+      </ion-col>
+    </ion-row>
+  <ion-row class="fila_1">
+      <ion-col col-3>
+        <ion-label>Puesto: </ion-label>
+      </ion-col>
+      <ion-col> 
+        <p>{{selectedPaciente.puesto}}</p> 
+      </ion-col>
+    </ion-row>
+    <br>
+  <ion-item-divider style="background-color: rgb(218, 245, 255); color: red;">Expediente</ion-item-divider>
+  
+  <div padding>
+      <ion-segment [(ngModel)]="expediente" *ngFor="let i of rows">
+          <ng-container *ngFor="let area of areas | slice:(i*segmentsPerRow):(i+1)*segmentsPerRow">
+            <ion-segment-button value="{{area.name}}">
+              {{area.desc}} <ion-badge item-end>{{ area.cant }}</ion-badge>
+            </ion-segment-button>
+          </ng-container>
+        </ion-segment>
+  </div>
+  <div [ngSwitch]="expediente">
+      <ion-list *ngSwitchCase="'todos'" no-lines>
+        <div id="audio" *ngIf="array_audio.length>0">
+          <ion-list-header class="head-list">
+              <ion-icon name="md-albums"></ion-icon>  Audiometría
+          </ion-list-header>
+          <ion-item *ngFor="let foto of array_audio">
+              <ion-icon name="document"></ion-icon>  {{ foto.descripcion_foto }}
+            <button ion-button color="btn-hc" medium icon-only item-end clear (click)="openModal(foto.id_foto,foto.descripcion_foto)">
+              <ion-icon name="md-arrow-dropright-circle"></ion-icon>
+            </button>
+          </ion-item>
+        </div>
+        <br>
+        <br>
+        <div id="espiro" *ngIf="array_esp.length>0">
+            <ion-list-header class="head-list">
+                <ion-icon name="md-albums"></ion-icon>  Espirometría
+            </ion-list-header>
+            <ion-item *ngFor="let foto of array_esp">
+                <ion-icon name="document"></ion-icon> {{ foto.descripcion_foto }}
+              <button ion-button color="btn-hc" medium icon-only item-end clear (click)="openModal(foto.id_foto,foto.descripcion_foto)">
+                <ion-icon name="md-arrow-dropright-circle"></ion-icon>
+              </button>
+            </ion-item>
+          </div>
+          <br>
+          <br>
+          <div id="hc" *ngIf="array_hc.length>0">
+              <ion-list-header class="head-list">
+                  <ion-icon name="md-albums"></ion-icon>  Historia Clínica
+              </ion-list-header>
+              <ion-item *ngFor="let foto of array_hc">
+                  <ion-icon name="document"></ion-icon> {{ foto.descripcion_foto }}
+                  <button ion-button color="btn-hc" medium icon-only item-end clear (click)="openModal(foto.id_foto,foto.descripcion_foto)">
+                    <ion-icon name="md-arrow-dropright-circle"></ion-icon>
+                </button>
+              </ion-item>
+            </div>
+
+            <div id="lab" *ngIf="array_lab.length>0">
+                <ion-list-header class="head-list">
+                    <ion-icon name="md-albums"></ion-icon>  Laboratorio
+                </ion-list-header>
+                <ion-item *ngFor="let foto of array_lab">
+                    <ion-icon name="document"></ion-icon> {{ foto.descripcion_foto }}
+                    <button ion-button color="btn-hc" medium icon-only item-end clear (click)="openModal(foto.id_foto,foto.descripcion_foto)">
+                      <ion-icon name="md-arrow-dropright-circle"></ion-icon>
+                  </button>
+                </ion-item>
+            </div>
+
+            <div id="lab" *ngIf="array_rayos.length>0">
+                <ion-list-header class="head-list">
+                    <ion-icon name="md-albums"></ion-icon>  Rayos X
+                </ion-list-header>
+                <ion-item *ngFor="let foto of array_rayos">
+                    <ion-icon name="document"></ion-icon> {{ foto.descripcion_foto }}
+                    <button ion-button color="btn-hc" medium icon-only item-end clear (click)="openModal(foto.id_foto,foto.descripcion_foto)">
+                      <ion-icon name="md-arrow-dropright-circle"></ion-icon>
+                  </button>
+                </ion-item>
+            </div>
+
+      </ion-list>
+
+      <ion-list *ngSwitchCase="'audio'" no-lines>
+          <div id="audio" *ngIf="array_audio.length>0">
+              <ion-list-header class="head-list">
+                  <ion-icon name="md-albums"></ion-icon>  Audiometría
+            </ion-list-header>
+            <ion-item *ngFor="let foto of array_audio">
+                <ion-icon name="document"></ion-icon> {{ foto.descripcion_foto }}
+                <button ion-button color="btn-hc" medium icon-only item-end clear (click)="openModal(foto.id_foto,foto.descripcion_foto)">
+                  <ion-icon name="md-arrow-dropright-circle"></ion-icon>
+              </button>
+            </ion-item>
+          </div>
+      </ion-list>
+    
+      <ion-list *ngSwitchCase="'espiro'" no-lines>
+          <div id="espiro" *ngIf="array_esp.length>0">
+              <ion-list-header class="head-list">
+                  <ion-icon name="md-albums"></ion-icon>  Espirometría
+            </ion-list-header>
+            <ion-item *ngFor="let foto of array_esp">
+                <ion-icon name="document"></ion-icon> {{ foto.descripcion_foto }}
+                <button ion-button color="btn-hc" medium icon-only item-end clear (click)="openModal(foto.id_foto,foto.descripcion_foto)">
+                  <ion-icon name="md-arrow-dropright-circle"></ion-icon>
+              </button>
+            </ion-item>
+          </div>
+      </ion-list>
+      
+      <ion-list *ngSwitchCase="'hc'" no-lines>
+          <div id="hc" *ngIf="array_hc.length>0">
+              <ion-list-header class="head-list">
+                  <ion-icon name="md-albums"></ion-icon>  Historia Clinica
+            </ion-list-header>
+            <ion-item *ngFor="let foto of array_hc">
+                <ion-icon name="document"></ion-icon> {{ foto.descripcion_foto }}
+                <button ion-button color="btn-hc" medium icon-only item-end clear (click)="openModal(foto.id_foto,foto.descripcion_foto)">
+                  <ion-icon name="md-arrow-dropright-circle"></ion-icon>
+              </button>
+            </ion-item>
+          </div>
+      </ion-list>
+
+      <ion-list *ngSwitchCase="'lab'" no-lines>
+          <div id="lab" *ngIf="array_lab.length>0">
+              <ion-list-header class="head-list">
+                  <ion-icon name="md-albums"></ion-icon>  Laboratorío
+            </ion-list-header>
+            <ion-item *ngFor="let foto of array_lab">
+                <ion-icon name="document"></ion-icon> {{ foto.descripcion_foto }}
+                <button ion-button color="btn-hc" medium icon-only item-end clear (click)="openModal(foto.id_foto,foto.descripcion_foto)">
+                  <ion-icon name="md-arrow-dropright-circle"></ion-icon>
+              </button>
+            </ion-item>
+          </div>
+      </ion-list>
+
+      <ion-list *ngSwitchCase="'rayos'" no-lines>
+          <div id="rayos" *ngIf="array_rayos.length>0">
+              <ion-list-header class="head-list">
+                  <ion-icon name="md-albums"></ion-icon>  Rayos X
+            </ion-list-header>
+            <ion-item *ngFor="let foto of array_rayos">
+                <ion-icon name="document"></ion-icon> {{ foto.descripcion_foto }}
+                <button ion-button color="btn-hc" medium icon-only item-end clear (click)="openModal(foto.id_foto,foto.descripcion_foto)">
+                  <ion-icon name="md-arrow-dropright-circle"></ion-icon>
+              </button>
+            </ion-item>
+          </div>
+      </ion-list>
+
+      <ion-list *ngSwitchCase="'kittens'">
+        <ion-item>
+          <ion-thumbnail item-start>
+            <img src="img/thumbnail-kitten-1.jpg">
+          </ion-thumbnail>
+          <h2>Luna</h2>
+        </ion-item>
+        ...
+      </ion-list>
+    </div>
+
+
+</ion-grid>
+
+
 </ion-content>

@@ -1,3 +1,53 @@
 page-home {
 
+    ion-content{
+        //background-image: url("./../../assets/imgs/fondo2.jpg");
+        background-color: rgb(197, 231, 253);
+    }
+
+    #foto_pac {
+        text-align: center;
+    }
+
+    p{
+        font-size: 16px;
+        font-weight: bold;
+        color: #6E6E6E;
+    }
+
+    ion-label{
+        color: #A4A4A4;
+    }
+
+    ion-content button img {
+        padding-right: 15px;
+        width: 50px;
+    }
+
+    .large_button {
+        line-height: 20vh !important;
+        height: 50px;
+        text-align: left;
+        }
+    
+    .btn-hc1{
+            color :#68A8DE;
+        }
+    
+    .fila_1{
+        background-color: #F2F2F2;
+    }
+
+    .head-list{
+        background-color: #F2F2F2;
+        font-size: 18px;
+        font-weight: bold;
+        color: #6E6E6E;
+        letter-spacing:3px;
+        border-style: solid;
+        border-color: rgb(196, 196, 196);
+        border-width: .5px;
+    }
+
 }
+
