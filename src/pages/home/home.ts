@@ -34,6 +34,63 @@ export class HomePage {
       .subscribe((response)=> {
         //console.log(response);
         this.pacientes=response;
+
+/*  borrar   */
+
+this.selectedPaciente = {};
+this.selectedPaciente = this.pacientes.find(paciente => paciente.id_paciente === '351');
+        console.log(this.selectedPaciente);
+        if(this.selectedPaciente !== undefined) {
+          this.PacienteFound = true;
+          this.fotos=this.selectedPaciente.fotos_exp;
+          console.log(this.fotos);
+
+          for(var i = 0; i < this.fotos.length; ++i){
+            switch (this.fotos[i].area_foto){
+              case 'Audiometría':
+                this.array_audio.push(this.fotos[i]);
+                break;
+              case 'Espirometría':
+                this.array_esp.push(this.fotos[i]);
+                break;
+              case 'Historia Clinica':
+                this.array_hc.push(this.fotos[i]);
+                break;
+              case 'Laboratorio':
+                this.array_lab.push(this.fotos[i]);
+                break;
+              case 'Rayos':
+                this.array_rayos.push(this.fotos[i]);
+                break;
+            }   
+          }
+
+          this.areas = [
+            {name: 'todos',desc:'Todos',cant:this.fotos.length},
+            {name: 'audio',desc:'Audiometría',cant:this.array_audio.length},
+            {name: 'espiro',desc:'Espirometría',cant:this.array_esp.length},
+            {name: 'hc',desc:'Hist Clinica',cant:this.array_hc.length},
+            {name: 'lab',desc:'Laboratorio',cant:this.array_lab.length},
+            {name: 'rayos',desc:'Rayos X',cant:this.array_rayos.length}
+          ]
+          this.segmentsPerRow = 2;
+          this.rows = Array.from(Array(Math.ceil(this.areas.length / this.segmentsPerRow)).keys());
+
+
+        } else {
+          this.PacienteFound = false;
+          this.toast.show('Paciente no Encontrado', '5000', 'center').subscribe(
+            toast => {
+              console.log(toast);
+            }
+          );
+        }
+
+
+/*  borrar   */
+
+
+
       }, (error) => {
 
         console.log('datos del error');
@@ -43,6 +100,12 @@ export class HomePage {
           console.log(toast);
         });
       });
+
+
+
+
+
+
     }
 
     scan() {

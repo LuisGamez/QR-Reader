@@ -3,28 +3,38 @@
     src: url("../assets/fonts/robotocondensed-regular-webfont.woff");
     }
 
+    @font-face {
+    font-family: FjallaOne-Regular;
+    src: url("../assets/fonts/fjallaone-regular-webfont.woff");
+    }
+
 page-welcome {
 
     .contenido {
-        background-image: url("./../../assets/imgs/fondo2.jpg");
-        //background-color: rgb(197, 231, 253);
+        background-image: url("./../../assets/imgs/fondoQR.jpg");
+        background-position: top center;
+        background-size: cover;
+
       }
 
+
+
     .btn-rh1{
-        color :#a2c037;
+        color :#00b9c0;
+        
     }
     .btn-hc1{
-        color :#68A8DE;
+        color :#00b9c0;
     }
 
     .slogan{
-        color:#3F3E3E;
-        font-size: 18px;
+        color:#ffffff;
+        font-size: 12px;
         font-style: unset;
-        font-weight: bold;
+   
         text-align: center;
-        padding-bottom: 20PX;
-        letter-spacing:3px;
+        padding-bottom: 60PX;
+        letter-spacing:6px;
     }
     
       #logo {
@@ -39,6 +49,10 @@ page-welcome {
     .large_button {
         line-height: 20vh !important;
         height: 50px;
-        text-align: left;
+        font-family: 'FjallaOne-Regular' !important;
+        border-radius: 5px 30px 30px 5px;
+        text-transform: capitalize;
         }
+
+
 }

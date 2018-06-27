@@ -6,8 +6,8 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>Sel Lector de QR</ion-title>
+  <ion-navbar color="color1">
+    <ion-title>Lector de QR</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -16,19 +16,19 @@
 <ion-content padding class="contenido">
   <br> 
           <div id="logo">
-            <img src="./assets/imgs/logo-reader.png" height="200px"/>
+            <img src="./assets/imgs/logoqr.png" height="180px"/>
           </div>
-  <p class="slogan">INNOVANDO EL CONTROL <br> DE TUS DATOS</p>
-    <button ion-button class="button large_button" color="btn-hc" large block (click)="showHC()">
-      <img src="./assets/imgs/medical-report.png"/>Historia Clinica    
+  <p class="slogan">INNOVANDO EL CONTROL<br> DE TUS DATOS</p>
+    <button ion-button class="button large_button" color="btn-hc" large (click)="showHC()">
+      <img src="./assets/imgs/medical-report01.png"/> Servicio Médico 
     </button>
   <br>
-    <button ion-button class="button large_button" color="btn-rh" large block (click)="showRH()">
-      <img src="./assets/imgs/job-search.png" width="35px" /> Recursos Humanos
+    <button ion-button class="button large_button" color="btn-rh" large (click)="showRH()">
+      <img src="./assets/imgs/job-search01.png" width="35px" /> Recursos Humanos
     </button>
   <br>
-  <button ion-button class="button large_button" color="btn-si" large block (click)="showSI()">
-      <img src="./assets/imgs/warning.png" width="35px" /> Seguridad Industrial    
+  <button ion-button class="button large_button" color="btn-si" large (click)="showSI()">
+      <img src="./assets/imgs/warning01.png" width="35px" /> Seguridad Industrial    
     </button>
 
 </ion-content>

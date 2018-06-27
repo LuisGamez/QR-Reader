@@ -33,6 +33,26 @@ export class RechumPage {
       .subscribe((response)=> {
         //console.log(response);
         this.pacientes=response;
+
+/***  borrar  ***/
+ this.selectedPaciente = {};
+
+this.selectedPaciente = this.pacientes.find(paciente => paciente.id_paciente === '351');
+        console.log(this.selectedPaciente);
+        if(this.selectedPaciente !== undefined) {
+          this.PacienteFound = true;
+        } else {
+          this.PacienteFound = false;
+          this.toast.show('Paciente no Encontrado', '5000', 'center').subscribe(
+            toast => {
+              console.log(toast);
+            }
+          );
+        }
+/***  borrar  ***/
+
+
+
       }, (error) => {
 
         console.log('datos del error');

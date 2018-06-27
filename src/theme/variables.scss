@@ -39,9 +39,10 @@ $colors: (
   danger:     #f53d3d,
   light:      #f4f4f4,
   dark:       #222,
-  btn-hc:     #68A8DE,
-  btn-rh:     #a2c037,
-  btn-si:     #dc911b
+  btn-hc:     #00b9c0,
+  btn-rh:     #7700d3,
+  btn-si:     #b500b3,
+  color1:     #0b1720,
 );
 
 
@@ -89,3 +90,8 @@ $colors: (
 
 @import "roboto";
 @import "noto-sans";
+
+@font-face {
+	font-family: 'FjallaOne-Regular';
+	src: url('../assets/fonts/fjallaone-regular-webfont.woff');
+}
