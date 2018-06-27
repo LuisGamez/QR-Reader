@@ -29,47 +29,22 @@
               <img src="./assets/imgs/paciente-female.png" width="150px" height="150px" *ngIf="selectedPaciente.foto_paciente==null && selectedPaciente.sexo_pac=='F'"/>
           </ion-col>
         </ion-row>
-        <ion-row class="fila_1">
-          <ion-col col-3>
-            <ion-label>Nombre: </ion-label>
-          </ion-col>
-          <ion-col> 
-              <p>{{selectedPaciente.name}} {{selectedPaciente.ap_pat_pac}} {{selectedPaciente.ap_mat_pac}} </p>
-          </ion-col>
-        </ion-row>
-        <ion-row>
-          <ion-label col-3>Dirección:</ion-label>
-          <ion-col>     
-            <p>{{ selectedPaciente.dir_pac }} Col. {{ selectedPaciente.col_dir_pac }} <br>
-            {{ selectedPaciente.cd_dir_pac }} , {{ selectedPaciente.edo_dir_pac }} C.P. {{ selectedPaciente.cp_dir_pac }}</p>
-          </ion-col>
-        </ion-row>
-        <ion-row class="fila_1">
-          <ion-col col-3>
-            <ion-label>Teléfono:</ion-label>
-          </ion-col>
-          <ion-col>
-            <p>{{ selectedPaciente.telefono_pac }}</p>
-          </ion-col>
-        </ion-row>
-        <ion-row >
-            <ion-col col-3>
-              <ion-label>Área: </ion-label>
-            </ion-col>
-            <ion-col> 
-              <p>{{selectedPaciente.area}}</p> 
-            </ion-col>
-          </ion-row>
-        <ion-row class="fila_1">
-            <ion-col col-3>
-              <ion-label>Puesto: </ion-label>
-            </ion-col>
-            <ion-col> 
-              <p>{{selectedPaciente.puesto}}</p> 
-            </ion-col>
-          </ion-row>
 
-          <br>
+        <ion-label stacked>Nombre: </ion-label> 
+        <ion-input [readonly]="true" type="text" value="{{selectedPaciente.name}} {{selectedPaciente.ap_pat_pac}} {{selectedPaciente.ap_mat_pac}}"></ion-input>
+          
+        <ion-label stacked>Dirección:</ion-label>
+        <ion-input [readonly]="true" type="text" value="{{ selectedPaciente.dir_pac }} Col. {{ selectedPaciente.col_dir_pac }}, {{ selectedPaciente.cd_dir_pac }} , {{ selectedPaciente.edo_dir_pac }} C.P. {{ selectedPaciente.cp_dir_pac }}"></ion-input>
+        
+        <ion-label stacked>Teléfono:</ion-label>
+        <ion-input [readonly]="true" type="text" value="{{ selectedPaciente.telefono_pac }}"></ion-input>
+        
+        <ion-label>Área: </ion-label>
+        <ion-input [readonly]="true" type="text" value="{{selectedPaciente.area}}"></ion-input> 
+        
+        <ion-label>Puesto: </ion-label>
+        <ion-input [readonly]="true" type="text" value="{{selectedPaciente.puesto}}"></ion-input>
+
   <ion-item-divider style="background-color: rgb(218, 245, 255); color: red;">Expediente</ion-item-divider>
   
   <div padding>
@@ -111,7 +86,7 @@
           <br>
           <div id="sec_3" *ngIf="array_sec3.length>0">
               <ion-list-header class="head-list">
-                  <ion-icon name="md-albums"></ion-icon>  Sección 3
+                  <ion-icon name="md-albums"></ion-icon>  Análisis y Resultados
               </ion-list-header>
               <ion-item *ngFor="let foto of array_sec3">
                   <ion-icon name="document"></ion-icon> {{ foto.descripcion_foto }}
@@ -122,10 +97,10 @@
             </div>
           </ion-list>
 
-        <ion-list *ngSwitchCase="'rayos'" no-lines>
+       <ion-list *ngSwitchCase="'rayos'" no-lines>
           <div id="rayos" *ngIf="array_rayos.length>0">
               <ion-list-header class="head-list">
-                  <ion-icon name="md-albums"></ion-icon>  Análisis y Resultados
+                  <ion-icon name="md-albums"></ion-icon>  Rayos
             </ion-list-header>
             <ion-item *ngFor="let foto of array_rayos">
                 <ion-icon name="document"></ion-icon> {{ foto.descripcion_foto }}
@@ -163,6 +138,22 @@
           </ion-item>
         </div>
     </ion-list>
+
+
+    <ion-list *ngSwitchCase="'video'" no-lines>
+      <div id="video_">
+          <ion-list-header class="head-list">
+              <ion-icon name="md-albums"></ion-icon>  Videos
+        </ion-list-header>
+        <ion-item >
+            <ion-icon name="document"></ion-icon> Video de Proceso
+            <button ion-button color="btn-hc" medium icon-only item-end clear (click)="openModal2()">
+              <ion-icon name="md-arrow-dropright-circle"></ion-icon>
+          </button>
+        </ion-item>
+      </div>
+  </ion-list>
+
     </div>
       </ion-grid>
 

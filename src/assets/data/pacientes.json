@@ -9,7 +9,7 @@
     "col_dir_pac":"Olinda",
     "cd_dir_pac":"San Luis Potosí",
     "edo_dir_pac":"San Luis Potosí",
-    "cp_dir_pac":"",
+    "cp_dir_pac":"78700",
     "telefono_pac":"4442655888",
     "foto_paciente":"351.jpg",
     "sexo_pac":"M",
@@ -167,6 +167,23 @@
         "id_foto": "0030",
         "descripcion_foto": "Sellección del Peso Teórico",
         "area_foto": "Sec_3"
+      }
+    ],
+    "rec_hum_exp":[
+      {
+        "id_foto": "0031",
+        "descripcion_foto": "Acta de Nacimiento",
+        "area_foto": "RH_Exp"
+      },
+      {
+        "id_foto": "0032",
+        "descripcion_foto": "Comprobante de Domicilia",
+        "area_foto": "RH_Exp"
+      },
+      {
+        "id_foto": "0033",
+        "descripcion_foto": "Identificación Oficial",
+        "area_foto": "RH_Exp"
       }
     ]
   }
