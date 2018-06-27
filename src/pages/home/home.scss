@@ -49,5 +49,14 @@ page-home {
         border-width: .5px;
     }
 
+    ion-content ion-grid ion-row ion-col img {
+        border-radius: 150px; /* Borde redondeado */
+        box-shadow: 0px 0px 8px #000; /* Sombra */
+        padding:5px; /* Espacio entre la imagen y el borde */
+        background:#FFF; /* Color de fondo que se ve entre el espacio */
+        -moz-transition: all 1s;
+        -webkit-transition: all 1s;
+        -o-transition: all 1s;
+        }
 }
 
