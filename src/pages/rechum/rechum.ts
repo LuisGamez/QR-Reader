@@ -4,6 +4,8 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { Toast } from '@ionic-native/toast';
 import { DataPacienteProvider } from '../../providers/data-paciente/data-paciente';
 import { WelcomePage } from '../welcome/welcome';
+import { ModalController } from 'ionic-angular';
+import { DetalleExpedientePage } from '../../pages/detalle-expediente/detalle-expediente';
 /**
  * Generated class for the RechumPage page.
  *
@@ -28,19 +30,21 @@ export class RechumPage {
   constructor(public navCtrl: NavController,
     private barcodeScanner: BarcodeScanner,
     private toast: Toast,
-    public dataPaciente: DataPacienteProvider) {
+    public dataPaciente: DataPacienteProvider,
+    public modalCtrl: ModalController) {
       this.dataPaciente.getListPacientes()
       .subscribe((response)=> {
         //console.log(response);
         this.pacientes=response;
 
-/***  borrar  ***/
- this.selectedPaciente = {};
-
-this.selectedPaciente = this.pacientes.find(paciente => paciente.id_paciente === '351');
+      /*#######  Borrar ########## */
+      this.selectedPaciente = {};
+        this.selectedPaciente = this.pacientes.find(paciente => paciente.id_paciente === '351');
         console.log(this.selectedPaciente);
         if(this.selectedPaciente !== undefined) {
           this.PacienteFound = true;
+          this.fotos=this.selectedPaciente.rec_hum_exp; //agregar
+
         } else {
           this.PacienteFound = false;
           this.toast.show('Paciente no Encontrado', '5000', 'center').subscribe(
@@ -49,10 +53,10 @@ this.selectedPaciente = this.pacientes.find(paciente => paciente.id_paciente ===
             }
           );
         }
-/***  borrar  ***/
 
 
-
+      /*#######  Borrar ########## */
+      
       }, (error) => {
 
         console.log('datos del error');
@@ -93,6 +97,13 @@ this.selectedPaciente = this.pacientes.find(paciente => paciente.id_paciente ===
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad RechumPage');
+  }
+
+  openModal(foto1,desc) {
+    console.log(foto1);
+    let obj = {paciente: this.selectedPaciente,foto_id: foto1,descripcion:desc};
+    let myModal = this.modalCtrl.create(DetalleExpedientePage,obj);
+    myModal.present();
   }
 
   regresar(){

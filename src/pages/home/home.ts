@@ -35,11 +35,13 @@ export class HomePage {
         //console.log(response);
         this.pacientes=response;
 
-/*  borrar   */
+/*##########3 borrar #############*/
 
-this.selectedPaciente = {};
-this.selectedPaciente = this.pacientes.find(paciente => paciente.id_paciente === '351');
+        this.selectedPaciente = {};
+        this.selectedPaciente = this.pacientes.find(paciente => paciente.id_paciente === '351');
+        
         console.log(this.selectedPaciente);
+        
         if(this.selectedPaciente !== undefined) {
           this.PacienteFound = true;
           this.fotos=this.selectedPaciente.fotos_exp;
@@ -86,8 +88,8 @@ this.selectedPaciente = this.pacientes.find(paciente => paciente.id_paciente ===
           );
         }
 
-
 /*  borrar   */
+
 
 
 

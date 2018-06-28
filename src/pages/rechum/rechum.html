@@ -23,130 +23,83 @@
     <ion-grid *ngIf="PacienteFound">
         <ion-row>  
             <ion-col id="foto_pac">
-              <img src="./assets/pacientes/351/{{ selectedPaciente.foto_paciente }}" height="150px" *ngIf="selectedPaciente.foto_paciente!=null"/>
+              <img class="post-body" src="./assets/pacientes/351/{{ selectedPaciente.foto_paciente }}" height="150px" *ngIf="selectedPaciente.foto_paciente!=null"/>
                 <img src="./assets/imgs/paciente-male.png" width="150px" height="150px" *ngIf="selectedPaciente.foto_paciente==null && selectedPaciente.sexo_pac=='M'"/>
                 <img src="./assets/imgs/paciente-female.png" width="150px" height="150px" *ngIf="selectedPaciente.foto_paciente==null && selectedPaciente.sexo_pac=='F'"/>
             </ion-col>
         </ion-row>
-      <ion-row class="fila_1">
-          <ion-col col-3>
-              <ion-label>Nomina: </ion-label>
-            </ion-col>
-            <ion-col> 
-                <p>351</p>
-            </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col col-3>
-            <ion-label>Nombre: </ion-label>
-          </ion-col>
-          <ion-col> 
-              <p>{{selectedPaciente.name}} {{selectedPaciente.ap_pat_pac}} {{selectedPaciente.ap_mat_pac}} </p>
-          </ion-col>
-        </ion-row>
-        <ion-row class="fila_1">
-          <ion-label col-3>Dirección:</ion-label>
-          <ion-col>     
-            <p>{{ selectedPaciente.dir_pac }} Col. {{ selectedPaciente.col_dir_pac }} <br>
-            {{ selectedPaciente.cd_dir_pac }} , {{ selectedPaciente.edo_dir_pac }} C.P. {{ selectedPaciente.cp_dir_pac }}</p>
-          </ion-col>
-        </ion-row>
-        <ion-row>
-            <ion-col col-3>
-                <ion-label>Fec Nac: </ion-label>
-              </ion-col>
-              <ion-col> 
-                  <p>25-May-1990</p>
-              </ion-col>
-        </ion-row>
-        <ion-row class="fila_1">
-          <ion-col col-3>
-            <ion-label>Teléfono:</ion-label>
-          </ion-col>
-          <ion-col>
-            <p>{{ selectedPaciente.telefono_pac }}</p>
-          </ion-col>
-        </ion-row>
-          <ion-row>
-              <ion-col col-3>
-                <ion-label>Escolaridad: </ion-label>
-              </ion-col>
-              <ion-col> 
-                  <p>Carrera Técnica </p>
-              </ion-col>
-            </ion-row>
-            <ion-row class="fila_1">
-                <ion-col col-3>
-                  <ion-label>Correo: </ion-label>
-                </ion-col>
-                <ion-col> 
-                    <p>carlos.alfredo@gmail.com</p>
-                </ion-col>
-              </ion-row>
-              <ion-row>
-                  <ion-col col-3>
-                    <ion-label>Área: </ion-label>
-                  </ion-col>
-                  <ion-col> 
-                      <p>{{selectedPaciente.area}} </p>
-                  </ion-col>
-                </ion-row>
-              <ion-row class="fila_1">
-                  <ion-col col-3>
-                    <ion-label>Puesto: </ion-label>
-                  </ion-col>
-                  <ion-col> 
-                      <p>{{selectedPaciente.puesto}} </p>
-                  </ion-col>
-                </ion-row>
-              <ion-row>
-                  <ion-col col-3>
-                    <ion-label>Contratación: </ion-label>
-                  </ion-col>
-                  <ion-col> 
-                      <p>12-Feb-2016 </p>
-                  </ion-col>
-                  </ion-row>
-                  <ion-row class="fila_1">
-                      <ion-col col-3>
-                        <ion-label>$ Diario: </ion-label>
-                      </ion-col>
-                      <ion-col> 
-                          <p>$ 255.00 </p>
-                      </ion-col>
-                    </ion-row>
-                    <ion-row>
-                        <ion-col col-3>
-                          <ion-label>$ Mensual: </ion-label>
-                        </ion-col>
-                        <ion-col> 
-                            <p>$ 7,650.00 </p>
-                        </ion-col>
-                      </ion-row>
-                    <ion-row class="fila_1">
-                        <ion-col col-3>
-                          <ion-label>Contrato: </ion-label>
-                        </ion-col>
-                        <ion-col> 
-                            <p>Indeterminado</p>
-                        </ion-col>
-                      </ion-row>
-                      <ion-row>
-                          <ion-col col-3>
-                            <ion-label>Banco: </ion-label>
-                          </ion-col>
-                          <ion-col> 
-                              <p>Santander</p>
-                          </ion-col>
-                        </ion-row>
-                      <ion-row class="fila_1">
-                          <ion-col col-3>
-                            <ion-label>Clave: </ion-label>
-                          </ion-col>
-                          <ion-col> 
-                              <p>014 700 605572578803</p>
-                          </ion-col>
-                        </ion-row>
+          <ion-label stacketd>Nomina: </ion-label>
+          <ion-input [readonly]="true" type="text" value="351"></ion-input>
+          
+          <ion-label stacked>Nombre: </ion-label>
+          <ion-input [readonly]="true" type="text" value="{{selectedPaciente.name}} {{selectedPaciente.ap_pat_pac}} {{selectedPaciente.ap_mat_pac}}"></ion-input>
+          
+          <ion-label stacked>Dirección:</ion-label>
+          <ion-textarea [readonly]="true" value="{{ selectedPaciente.dir_pac }} Col. {{ selectedPaciente.col_dir_pac }}, {{ selectedPaciente.cd_dir_pac }} , {{ selectedPaciente.edo_dir_pac }} C.P. {{ selectedPaciente.cp_dir_pac }}"></ion-textarea>
+          
+          <ion-label stacked>Fec Nac: </ion-label>
+          <ion-input [readonly]="true" type="text" value="25-May-1990"></ion-input>
+
+          <ion-label stacked>Teléfono:</ion-label>
+          <ion-input [readonly]="true" type="text" value="{{ selectedPaciente.telefono_pac }}"></ion-input>
+          
+          <ion-label stacked>Escolaridad: </ion-label>
+          <ion-input [readonly]="true" type="text" value="Carrera Técnica"></ion-input>
+          
+          <ion-label stacked>Correo: </ion-label>
+          <ion-input [readonly]="true" type="text" value="carlos.alfredo@gmail.com"></ion-input>
+          
+          <ion-label stacked>Área: </ion-label>
+          <ion-input [readonly]="true" type="text" value="{{selectedPaciente.area}}"></ion-input>
+          
+          <ion-label stacked>Puesto: </ion-label>
+          <ion-input [readonly]="true" type="text" value="{{selectedPaciente.puesto}}"></ion-input>
+                    
+          <ion-label stacked>Contratación: </ion-label>
+          <ion-input [readonly]="true" type="text" value="12-Feb-2016"></ion-input>
+          
+          <ion-label stacked>$ Diario: </ion-label>
+          <ion-input [readonly]="true" type="text" value="$ 255.00"></ion-input>
+          
+          <ion-label stacked>$ Mensual: </ion-label>
+          <ion-input [readonly]="true" type="text" value="$ 7,650.00"></ion-input>
+          
+          <ion-label stacked>Contrato: </ion-label>
+          <ion-input [readonly]="true" type="text" value="Indeterminado"></ion-input>
+          
+          <ion-label stacked>Banco: </ion-label>
+          <ion-input [readonly]="true" type="text" value="Santander"></ion-input>
+          
+          <ion-label stacked>Clave: </ion-label>
+          <ion-input [readonly]="true" type="text" value="014 700 605572578803"></ion-input>
+          
+          
+          <div padding>
+            <ion-segment [(ngModel)]="rh">
+              <ion-segment-button value="Exp1">
+                Documentos
+              </ion-segment-button>
+            </ion-segment>
+          </div>
+
+          <div [ngSwitch]="rh">
+            <ion-list *ngSwitchCase="'Exp1'">
+              <div id="exp1" *ngIf="fotos.length>0">
+                <ion-list-header class="head-list">
+                    <ion-icon name="md-albums"></ion-icon> Documentos
+                </ion-list-header>
+                <ion-item *ngFor="let foto of fotos">
+                    <ion-icon name="document"></ion-icon>  {{ foto.descripcion_foto }}
+                  <button ion-button color="btn-hc" medium icon-only item-end clear (click)="openModal(foto.id_foto,foto.descripcion_foto)">
+                    <ion-icon name="md-arrow-dropright-circle"></ion-icon>
+                  </button>
+                </ion-item>
+              </div>
+            </ion-list>
+          </div>
+
+          
+
     </ion-grid>
 
 

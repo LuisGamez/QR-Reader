@@ -33,10 +33,11 @@ export class SegindPage {
       .subscribe((response)=> {
         //console.log(response);
         this.pacientes=response;
-
-/*******  Borrar  ********/
- this.selectedPaciente = {};
-this.selectedPaciente = this.pacientes.find(paciente => paciente.id_paciente === '351');
+      
+  /**####### Borrar #######**/ 
+      
+        this.selectedPaciente = {};
+      this.selectedPaciente = this.pacientes.find(paciente => paciente.id_paciente === '351');
       console.log(this.selectedPaciente);
       if(this.selectedPaciente !== undefined) {
         this.PacienteFound = true;
@@ -60,8 +61,9 @@ this.selectedPaciente = this.pacientes.find(paciente => paciente.id_paciente ===
         this.areas = [
           {name: 'todos',desc:'Todos',cant:this.fotos.length},
           {name: 'rayos',desc:'Rayos X',cant:this.array_rayos.length},
-          {name: 'sec2',desc:'Seccion_2',cant:this.array_sec2.length},
-          {name: 'sec3',desc:'Seccion_3',cant:this.array_sec3.length},
+          {name: 'sec2',desc:'Ergonomía',cant:this.array_sec2.length},
+          {name: 'sec3',desc:'Análisis',cant:this.array_sec3.length},
+          {name: 'video',desc:'Video',cant:1},
         ]
         this.segmentsPerRow = 2;
         this.rows = Array.from(Array(Math.ceil(this.areas.length / this.segmentsPerRow)).keys());
@@ -76,8 +78,6 @@ this.selectedPaciente = this.pacientes.find(paciente => paciente.id_paciente ===
       }
 
 /*******  Borrar  ********/
-
-
 
 
       }, (error) => {
@@ -124,6 +124,7 @@ this.selectedPaciente = this.pacientes.find(paciente => paciente.id_paciente ===
           {name: 'rayos',desc:'Rayos X',cant:this.array_rayos.length},
           {name: 'sec2',desc:'Seccion_2',cant:this.array_sec2.length},
           {name: 'sec3',desc:'Seccion_3',cant:this.array_sec3.length},
+          {name: 'video',desc:'Video',cant:1},
         ]
         this.segmentsPerRow = 2;
         this.rows = Array.from(Array(Math.ceil(this.areas.length / this.segmentsPerRow)).keys());
@@ -150,6 +151,12 @@ this.selectedPaciente = this.pacientes.find(paciente => paciente.id_paciente ===
   openModal(foto1,desc) {
     console.log(foto1);
     let obj = {paciente: this.selectedPaciente,foto_id: foto1,descripcion:desc};
+    let myModal = this.modalCtrl.create(DetalleExpedientePage,obj);
+    myModal.present();
+  }
+
+  openModal2() {
+    let obj = {paciente: null,foto_id: null,descripcion:'Video del Proceso'};
     let myModal = this.modalCtrl.create(DetalleExpedientePage,obj);
     myModal.present();
   }
